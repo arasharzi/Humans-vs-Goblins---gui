@@ -18,7 +18,7 @@ public class Human extends Entity
     {
         Random random = new Random();
         this.sprite = new Sprite("images/the_knight_32x32.png");
-        this.setDirection(1);
+        this.setDirection(Direction.SOUTH);
         this.setX(random.nextInt(col - 1) * tileSize);
         this.setY(random.nextInt(row - 2) * tileSize);
         this.setInventory(new Inventory());
@@ -37,11 +37,11 @@ public class Human extends Entity
 
         switch (this.getDirection())
         {
-            case 0 -> {return sprite.getSprite(2).getScaledInstance((int)(size * scale),
+            case NORTH -> {return sprite.getSprite(2).getScaledInstance((int)(size * scale),
                     (int)(size * scale), 0);}
-            case 1 -> {return sprite.getSprite(0).getScaledInstance((int)(size * scale),
+            case SOUTH -> {return sprite.getSprite(0).getScaledInstance((int)(size * scale),
                     (int)(size * scale), 0);}
-            case 2 -> {return sprite.getSprite(4).getScaledInstance((int)(size * scale),
+            case EAST -> {return sprite.getSprite(4).getScaledInstance((int)(size * scale),
                     (int)(size * scale), 0);}
             default -> {return sprite.getSprite(7).getScaledInstance((int)(size * scale),
                         (int)(size * scale), 0);

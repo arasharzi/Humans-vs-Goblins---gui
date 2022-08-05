@@ -169,22 +169,22 @@ public class GamePanel extends JPanel implements Runnable
         {
             case "North" ->
             {
-                human.move("north", scaledTileSize);
+                human.move(Entity.Direction.NORTH, scaledTileSize);
                 humanUpdated = true;
             }
             case "South" ->
             {
-                human.move("south", scaledTileSize);
-                humanUpdated = true;
-            }
-            case "West" ->
-            {
-                human.move("west", scaledTileSize);
+                human.move(Entity.Direction.SOUTH, scaledTileSize);
                 humanUpdated = true;
             }
             case "East" ->
             {
-                human.move("east", scaledTileSize);
+                human.move(Entity.Direction.EAST, scaledTileSize);
+                humanUpdated = true;
+            }
+            case "West" ->
+            {
+                human.move(Entity.Direction.WEST, scaledTileSize);
                 humanUpdated = true;
             }
         }
@@ -213,22 +213,22 @@ public class GamePanel extends JPanel implements Runnable
         {
             if (distanceX > 0)
             {
-                goblin.move("east", scaledTileSize);
+                goblin.move(Entity.Direction.EAST, scaledTileSize);
             }
             else
             {
-                goblin.move("west", scaledTileSize);
+                goblin.move(Entity.Direction.WEST, scaledTileSize);
             }
         }
         else if (Math.abs(distanceX) >= Math.abs(distanceY) && Math.abs(distanceY) >= scaledTileSize || distanceX == 0)
         {
             if (distanceY > 0)
             {
-                goblin.move("south", scaledTileSize);
+                goblin.move(Entity.Direction.SOUTH, scaledTileSize);
             }
             else
             {
-                goblin.move("north", scaledTileSize);
+                goblin.move(Entity.Direction.NORTH, scaledTileSize);
             }
         }
     }

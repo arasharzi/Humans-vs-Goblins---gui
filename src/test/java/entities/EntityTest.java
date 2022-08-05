@@ -16,7 +16,7 @@ class EntityTest
     @Test
     void testLocation()
     {
-        // entity location is random based on col and row and can't be tested.
+        // initial entity location is random based on col and row and can't be tested.
 
         entity.setX(0);
         entity.setY(48);
@@ -70,8 +70,8 @@ class EntityTest
     @Test
     void testDirection()
     {
-        entity.setDirection(1);
-        assertEquals(entity.getDirection(), 1);
+        entity.setDirection(Entity.Direction.SOUTH);
+        assertEquals(entity.getDirection(), Entity.Direction.SOUTH);
     }
 
     @AfterEach

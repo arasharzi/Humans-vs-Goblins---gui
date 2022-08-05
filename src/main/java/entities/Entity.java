@@ -9,6 +9,14 @@ import java.util.Random;
 
 public abstract class Entity
 {
+    public enum Direction
+    {
+        NORTH,
+        SOUTH,
+        EAST,
+        WEST
+    }
+
     private int x;
     private int y;
 
@@ -20,7 +28,7 @@ public abstract class Entity
 
     private boolean turn;
 
-    private int direction; // 0 north, 1 south, 2 east, 3 west
+    private Direction direction;
 
     private Inventory inventory;
 
@@ -112,11 +120,11 @@ public abstract class Entity
         this.y = random.nextInt(y);
     }
 
-    public int getDirection()
+    public Direction getDirection()
     {
         return direction;
     }
-    public void setDirection(int direction)
+    public void setDirection(Direction direction)
     {
         this.direction = direction;
     }
@@ -154,14 +162,14 @@ public abstract class Entity
             return entity.name + "'s armor took " + Math.abs(damage) + " damage.";
         }
     }
-    public void move(String direction, int value)
+    public void move(Direction direction, int value)
     {
         switch (direction)
         {
-            case "north" -> {this.setY(this.getY() - value); this.setDirection(0);}
-            case "south" -> {this.setY(this.getY() + value); this.setDirection(1);}
-            case "east" -> {this.setX(this.getX() + value); this.setDirection(2);}
-            case "west" -> {this.setX(this.getX() - value); this.setDirection(3);}
+            case NORTH -> {this.setY(this.getY() - value); this.direction = Direction.NORTH;}
+            case SOUTH -> {this.setY(this.getY() + value); this.direction = Direction.SOUTH;}
+            case EAST -> {this.setX(this.getX() + value); this.direction = Direction.EAST;}
+            case WEST -> {this.setX(this.getX() - value); this.direction = Direction.WEST;}
         }
     }
 
